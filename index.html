@@ -655,41 +655,91 @@ async function loadConfessions(){
       "/rest/v1/anonymous_confessions?select=id,created_at,content,category&order=created_at.desc&limit=10",
       {
         headers:{
-          "apikey":SUPABASE_KEY,
-          "Authorization":"Bearer " + SUPABASE_KEY
+          "apikey": SUPABASE_KEY
         }
       }
     );
 
-    if(!response.ok) return;
+    if(!response.ok){
+      console.error("Could not load confessions");
+      return;
+    }
 
-    const data=await response.json();
+    const data = await response.json();
 
-    const feed=document.getElementById("confessionFeed");
-    const posts=document.getElementById("posts");
+    const feed = document.getElementById("confessionFeed");
+    const posts = document.getElementById("posts");
 
-    feed.style.display="block";
-    posts.innerHTML="";
+    feed.style.display = "block";
+    posts.innerHTML = "";
 
-    data.forEach(item=>{
+    if(data.length === 0){
 
-      const div=document.createElement("div");
-      div.className="post";
+      posts.innerHTML = `
+        <div class="empty-confessions">
+          <div class="empty-icon">🫖</div>
+          <h3>No tea yet...</h3>
+          <p>Be the first person to spill something.</p>
+        </div>
+      `;
 
-      div.innerHTML=
-        "<div class='post-label'>🔒 ANONYMOUS · " +
-        escapeHtml(item.category) +
-        "</div>" +
-        "<p>" +
-        escapeHtml(item.content) +
-        "</p>";
+      return;
+    }
+
+    data.forEach(item => {
+
+      const date = new Date(item.created_at);
+
+      const formattedDate = date.toLocaleDateString("en-US", {
+        day: "numeric",
+        month: "short",
+        year: "numeric"
+      });
+
+      const category =
+        item.category && item.category !== "general"
+        ? item.category
+        : "General";
+
+      const div = document.createElement("article");
+
+      div.className = "confession-card";
+
+      div.innerHTML = `
+        <div class="confession-top">
+          <div class="anonymous-avatar">🕵️</div>
+
+          <div class="confession-info">
+            <strong>Anonymous</strong>
+            <span>Posted ${formattedDate}</span>
+          </div>
+
+          <div class="confession-menu">•••</div>
+        </div>
+
+        <div class="confession-category">
+          🫖 ${escapeHtml(category)}
+        </div>
+
+        <p class="confession-text">
+          ${escapeHtml(item.content)}
+        </p>
+
+        <div class="confession-actions">
+          <button type="button">♡ Like</button>
+          <button type="button">💬 Comment</button>
+          <button type="button">🚩 Report</button>
+        </div>
+      `;
 
       posts.appendChild(div);
 
     });
 
   }catch(error){
-    console.error(error);
+
+    console.error("Confession error:", error);
+
   }
 }
 
