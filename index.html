@@ -3,371 +3,387 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Thai BL&GL</title>
+<title>Thai BL&GL — The Fandom After Dark</title>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:wght@600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:wght@600;700;800&display=swap');
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+:root{
+  --teal:#087f7b;
+  --teal-dark:#045452;
+  --burgundy:#741f3b;
+  --burgundy-dark:#481326;
+  --cream:#f7f2e9;
+  --white:#fff;
+  --ink:#202526;
+  --muted:#747a79;
+  --line:#e5ded3;
 }
 
-:root {
-  --teal: #087f7b;
-  --dark-teal: #045452;
-  --burgundy: #741f3b;
-  --deep-burgundy: #481326;
-  --cream: #f8f4ec;
-  --white: #ffffff;
-  --text: #202526;
-  --muted: #727979;
+*{box-sizing:border-box;margin:0;padding:0}
+
+body{
+  font-family:'DM Sans',sans-serif;
+  background:var(--cream);
+  color:var(--ink);
 }
 
-body {
-  font-family: 'DM Sans', sans-serif;
-  background: var(--cream);
-  color: var(--text);
+header{
+  height:76px;
+  background:rgba(255,255,255,.96);
+  border-bottom:1px solid var(--line);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 6%;
+  position:sticky;
+  top:0;
+  z-index:100;
 }
 
-/* NAVIGATION */
-
-header {
-  background: var(--white);
-  border-bottom: 1px solid #e5e0d7;
-  padding: 18px 6%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: sticky;
-  top: 0;
-  z-index: 100;
+.logo{
+  font-family:'Playfair Display',serif;
+  font-size:25px;
+  font-weight:800;
+  color:var(--burgundy);
 }
 
-.logo {
-  font-family: 'Playfair Display', serif;
-  font-size: 25px;
-  font-weight: 700;
-  color: var(--burgundy);
+.logo span{color:var(--teal)}
+
+nav{display:flex;gap:24px}
+
+nav a{
+  text-decoration:none;
+  color:var(--ink);
+  font-size:14px;
+  font-weight:700;
 }
 
-.logo span {
-  color: var(--teal);
-}
+nav a:hover{color:var(--teal)}
 
-nav {
-  display: flex;
-  gap: 24px;
-}
-
-nav a {
-  color: var(--text);
-  text-decoration: none;
-  font-size: 14px;
-  font-weight: 700;
-}
-
-nav a:hover {
-  color: var(--teal);
-}
-
-/* HERO */
-
-.hero {
-  min-height: 560px;
-  padding: 90px 7%;
-  display: grid;
-  grid-template-columns: 1.2fr .8fr;
-  gap: 50px;
-  align-items: center;
+.hero{
+  min-height:590px;
+  padding:85px 7%;
+  display:grid;
+  grid-template-columns:1.1fr .9fr;
+  gap:60px;
+  align-items:center;
   background:
-    radial-gradient(circle at 85% 20%, rgba(8,127,123,.15), transparent 30%),
-    radial-gradient(circle at 15% 80%, rgba(116,31,59,.14), transparent 30%),
+    radial-gradient(circle at 85% 20%,rgba(8,127,123,.16),transparent 28%),
+    radial-gradient(circle at 10% 80%,rgba(116,31,59,.14),transparent 30%),
     var(--cream);
 }
 
-.badge {
-  display: inline-block;
-  background: #e5f3f1;
-  color: var(--dark-teal);
-  padding: 8px 14px;
-  border-radius: 50px;
-  font-size: 13px;
-  font-weight: 700;
-  margin-bottom: 20px;
+.kicker{
+  display:inline-block;
+  background:#e3f2f0;
+  color:var(--teal-dark);
+  padding:8px 14px;
+  border-radius:30px;
+  font-size:12px;
+  font-weight:700;
+  letter-spacing:.5px;
+  margin-bottom:20px;
 }
 
-.hero h1 {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(48px, 7vw, 82px);
-  line-height: .98;
-  max-width: 720px;
+.hero h1{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(48px,7vw,82px);
+  line-height:.96;
+  max-width:700px;
 }
 
-.hero h1 .teal {
-  color: var(--teal);
+.teal{color:var(--teal)}
+.burgundy{color:var(--burgundy)}
+
+.hero p{
+  max-width:590px;
+  margin-top:25px;
+  color:var(--muted);
+  font-size:17px;
+  line-height:1.7;
 }
 
-.hero h1 .burgundy {
-  color: var(--burgundy);
+.actions{
+  margin-top:30px;
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
 }
 
-.hero p {
-  margin-top: 25px;
-  max-width: 580px;
-  color: var(--muted);
-  font-size: 17px;
-  line-height: 1.7;
+.btn{
+  display:inline-block;
+  padding:14px 22px;
+  border-radius:9px;
+  text-decoration:none;
+  font-weight:700;
+  cursor:pointer;
+  border:0;
+  font-family:inherit;
 }
 
-.hero-buttons {
-  margin-top: 30px;
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
+.btn-main{
+  background:var(--burgundy);
+  color:white;
 }
 
-.button {
-  display: inline-block;
-  padding: 14px 22px;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: 700;
+.btn-alt{
+  border:2px solid var(--teal);
+  color:var(--teal);
+  background:transparent;
 }
 
-.primary {
-  background: var(--burgundy);
-  color: white;
+.confession-card{
+  background:var(--burgundy-dark);
+  color:white;
+  padding:35px;
+  border-radius:28px;
+  transform:rotate(2deg);
+  box-shadow:20px 25px 0 rgba(8,127,123,.18);
 }
 
-.secondary {
-  border: 2px solid var(--teal);
-  color: var(--teal);
+.confession-card small{
+  color:#b8dedb;
+  font-weight:700;
 }
 
-/* CONFESSION CARD */
-
-.confession-preview {
-  background: var(--deep-burgundy);
-  color: white;
-  padding: 34px;
-  border-radius: 28px;
-  transform: rotate(2deg);
-  box-shadow: 20px 25px 0 rgba(8,127,123,.18);
+.confession-card h2{
+  font-family:'Playfair Display',serif;
+  font-size:34px;
+  margin:20px 0;
 }
 
-.confession-preview small {
-  color: #b7dedb;
-  font-weight: 700;
+.confession-card p{
+  color:#eee;
+  line-height:1.7;
 }
 
-.confession-preview h2 {
-  font-family: 'Playfair Display', serif;
-  font-size: 34px;
-  margin: 20px 0;
+.confession-meta{
+  margin-top:25px;
+  padding-top:18px;
+  border-top:1px solid rgba(255,255,255,.2);
+  font-size:12px;
+  color:#d9c8ce;
 }
 
-.confession-preview p {
-  color: #eee;
-  line-height: 1.7;
+.section{
+  padding:75px 7%;
 }
 
-.confession-line {
-  margin-top: 25px;
-  border-top: 1px solid rgba(255,255,255,.2);
-  padding-top: 18px;
-  font-size: 13px;
+.section-title{
+  font-family:'Playfair Display',serif;
+  font-size:44px;
+  margin-bottom:10px;
 }
 
-/* SECTIONS */
-
-.section {
-  padding: 75px 7%;
+.section-sub{
+  color:var(--muted);
+  margin-bottom:30px;
 }
 
-.section-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: end;
-  margin-bottom: 30px;
+.cards{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
 }
 
-.section h2 {
-  font-family: 'Playfair Display', serif;
-  font-size: 42px;
+.card{
+  background:white;
+  padding:28px;
+  border:1px solid var(--line);
+  border-radius:20px;
+  transition:.25s;
 }
 
-.section-header p {
-  color: var(--muted);
+.card:hover{transform:translateY(-5px)}
+
+.icon{font-size:30px;margin-bottom:18px}
+
+.card h3{font-size:21px;margin-bottom:10px}
+
+.card p{
+  color:var(--muted);
+  line-height:1.6;
 }
 
-/* CARDS */
-
-.cards {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
+.tea{
+  background:var(--teal);
+  color:white;
+  padding:75px 7%;
 }
 
-.card {
-  background: white;
-  padding: 28px;
-  border-radius: 18px;
-  border: 1px solid #e9e4db;
-  transition: .25s;
+.tea h2{
+  font-family:'Playfair Display',serif;
+  font-size:45px;
 }
 
-.card:hover {
-  transform: translateY(-6px);
+.tea p{
+  color:#d9eeec;
+  margin-top:8px;
 }
 
-.card .icon {
-  font-size: 30px;
-  margin-bottom: 18px;
+.tea-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+  margin-top:35px;
 }
 
-.card h3 {
-  font-size: 21px;
-  margin-bottom: 10px;
+.tea-card{
+  background:rgba(255,255,255,.12);
+  padding:25px;
+  border-radius:17px;
 }
 
-.card p {
-  color: var(--muted);
-  line-height: 1.6;
+.tea-card small{
+  opacity:.7;
+  font-weight:700;
 }
 
-/* TEA SECTION */
+.tea-card h3{margin-top:10px}
 
-.tea {
-  background: var(--teal);
-  color: white;
-  padding: 75px 7%;
+.confessions{
+  padding:80px 7%;
+  background:#eee4e1;
 }
 
-.tea h2 {
-  font-family: 'Playfair Display', serif;
-  font-size: 45px;
+.confession-box{
+  max-width:900px;
+  margin:auto;
+  background:white;
+  padding:45px;
+  border-radius:25px;
+  text-align:center;
 }
 
-.tea p {
-  margin-top: 12px;
-  color: #d8eeec;
+.confession-box h2{
+  font-family:'Playfair Display',serif;
+  font-size:44px;
+  color:var(--burgundy);
 }
 
-.tea-grid {
-  margin-top: 35px;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 18px;
+.confession-box p{
+  max-width:600px;
+  margin:15px auto 25px;
+  color:var(--muted);
+  line-height:1.7;
 }
 
-.tea-card {
-  background: rgba(255,255,255,.12);
-  padding: 24px;
-  border-radius: 16px;
+.form{
+  display:none;
+  max-width:650px;
+  margin:30px auto 0;
+  text-align:left;
 }
 
-.tea-card span {
-  font-size: 12px;
-  opacity: .75;
+.form textarea{
+  width:100%;
+  min-height:150px;
+  padding:16px;
+  border:1px solid var(--line);
+  border-radius:12px;
+  resize:vertical;
+  font-family:inherit;
+  font-size:15px;
 }
 
-.tea-card h3 {
-  margin-top: 10px;
+.form select{
+  width:100%;
+  padding:14px;
+  margin:12px 0;
+  border:1px solid var(--line);
+  border-radius:10px;
+  font-family:inherit;
 }
 
-/* CONFESSION */
-
-.confessions {
-  padding: 80px 7%;
-  background: #f1e9e5;
+.form button{
+  background:var(--teal);
+  color:white;
+  border:0;
+  padding:14px 22px;
+  border-radius:9px;
+  font-weight:700;
+  cursor:pointer;
 }
 
-.confession-box {
-  max-width: 900px;
-  margin: auto;
-  background: white;
-  border-radius: 25px;
-  padding: 45px;
-  text-align: center;
+.status{
+  margin-top:15px;
+  font-size:14px;
+  font-weight:700;
 }
 
-.confession-box h2 {
-  font-family: 'Playfair Display', serif;
-  font-size: 44px;
-  color: var(--burgundy);
+.feed{
+  display:none;
+  max-width:900px;
+  margin:40px auto 0;
 }
 
-.confession-box p {
-  margin: 15px auto 25px;
-  max-width: 600px;
-  color: var(--muted);
-  line-height: 1.7;
+.feed h3{
+  font-family:'Playfair Display',serif;
+  font-size:32px;
+  margin-bottom:20px;
 }
 
-.confess-button {
-  display: inline-block;
-  background: var(--teal);
-  color: white;
-  padding: 15px 28px;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: 700;
+.post{
+  background:white;
+  padding:25px;
+  border-radius:17px;
+  margin-bottom:15px;
+  border:1px solid var(--line);
 }
 
-/* FOOTER */
-
-footer {
-  background: var(--deep-burgundy);
-  color: white;
-  padding: 40px 7%;
-  display: flex;
-  justify-content: space-between;
-  gap: 20px;
+.post-label{
+  font-size:11px;
+  font-weight:700;
+  color:var(--teal);
 }
 
-footer p {
-  color: #d8c8cd;
-  font-size: 14px;
+.post p{
+  margin-top:12px;
+  line-height:1.6;
 }
 
-/* MOBILE */
+footer{
+  background:var(--burgundy-dark);
+  color:white;
+  padding:40px 7%;
+  display:flex;
+  justify-content:space-between;
+}
 
-@media (max-width: 800px) {
+footer p{color:#d5c6ca;font-size:13px}
 
-  header {
-    flex-direction: column;
-    gap: 15px;
+@media(max-width:800px){
+
+  header{
+    height:auto;
+    padding:18px 5%;
+    flex-direction:column;
+    gap:15px;
   }
 
-  nav {
-    gap: 12px;
-    flex-wrap: wrap;
-    justify-content: center;
+  nav{
+    gap:12px;
+    flex-wrap:wrap;
+    justify-content:center;
   }
 
-  .hero {
-    grid-template-columns: 1fr;
-    padding-top: 60px;
+  .hero{
+    grid-template-columns:1fr;
+    padding:60px 7%;
   }
 
-  .cards,
-  .tea-grid {
-    grid-template-columns: 1fr;
+  .cards,.tea-grid{
+    grid-template-columns:1fr;
   }
 
-  .section-header {
-    display: block;
-  }
+  .confession-card{transform:none}
 
-  .section-header p {
-    margin-top: 10px;
-  }
+  .section-title{font-size:36px}
 
-  footer {
-    flex-direction: column;
+  footer{
+    flex-direction:column;
+    gap:15px;
   }
 }
 </style>
@@ -376,86 +392,72 @@ footer p {
 <body>
 
 <header>
-
-  <div class="logo">
-    Thai <span>BL&GL</span>
-  </div>
+  <div class="logo">Thai <span>BL&GL</span></div>
 
   <nav>
     <a href="#">Home</a>
-    <a href="#">BL</a>
-    <a href="#">GL</a>
-    <a href="#">The Tea</a>
-    <a href="#">Confessions</a>
+    <a href="#community">Community</a>
+    <a href="#tea">The Tea</a>
+    <a href="#confessions">Confessions</a>
   </nav>
-
 </header>
-
 
 <section class="hero">
 
   <div>
-
-    <div class="badge">THE HOME OF THAI BL & GL FANS</div>
+    <div class="kicker">THE THAI BL & GL FANDOM SPACE</div>
 
     <h1>
-      Your stories.<br>
-      Your <span class="teal">tea.</span><br>
-      Your <span class="burgundy">community.</span>
+      Come for the
+      <span class="teal">stories.</span><br>
+      Stay for the
+      <span class="burgundy">tea.</span>
     </h1>
 
     <p>
-      A fresh space for Thai BL & GL fans to talk,
-      confess, gossip, recommend, react and connect —
-      anonymously or openly.
+      Talk about the shows you love, share your hottest theories,
+      meet fellow fans and say the things you can't always say out loud.
+      You can be yourself — or completely anonymous.
     </p>
 
-    <div class="hero-buttons">
-      <a href="#confessions" class="button primary">
-        Spill a Confession
+    <div class="actions">
+      <a href="#confessions" class="btn btn-main">
+        🔒 Spill a Confession
       </a>
 
-      <a href="#community" class="button secondary">
+      <a href="#community" class="btn btn-alt">
         Explore the Community
       </a>
     </div>
-
   </div>
 
-
-  <div class="confession-preview">
-
+  <div class="confession-card">
     <small>🔒 ANONYMOUS CONFESSION</small>
 
     <h2>
-      “I still haven't recovered
-      from that episode...”
+      “I said I was watching
+      for the plot. I lied.”
     </h2>
 
     <p>
-      Sometimes you just need somewhere
-      to say what you're really thinking.
-      No names. No judgment.
+      Some thoughts are better shared without a name attached.
+      This is your space to confess, rant, celebrate and spill.
     </p>
 
-    <div class="confession-line">
-      Posted anonymously · 2h ago
+    <div class="confession-meta">
+      Anonymous · just now · 🔥 24 reactions
     </div>
-
   </div>
 
 </section>
 
-
 <section class="section" id="community">
 
-  <div class="section-header">
-    <div>
-      <h2>Find your corner.</h2>
-      <p>There's always something happening.</p>
-    </div>
-  </div>
+  <h2 class="section-title">Find your corner.</h2>
 
+  <p class="section-sub">
+    Different fandoms. Different opinions. One community.
+  </p>
 
   <div class="cards">
 
@@ -463,8 +465,8 @@ footer p {
       <div class="icon">🩵</div>
       <h3>Thai BL</h3>
       <p>
-        Talk series, couples, characters,
-        theories and unforgettable moments.
+        Ships, series, characters, theories and
+        all the moments that made you scream.
       </p>
     </div>
 
@@ -472,8 +474,8 @@ footer p {
       <div class="icon">🍷</div>
       <h3>Thai GL</h3>
       <p>
-        Discover discussions, ships,
-        series and the latest GL conversations.
+        Talk about your favourite GL stories,
+        couples, characters and upcoming releases.
       </p>
     </div>
 
@@ -481,8 +483,8 @@ footer p {
       <div class="icon">🔥</div>
       <h3>Trending</h3>
       <p>
-        See what everyone is talking about
-        before the tea gets cold.
+        See the conversations getting the most
+        attention across the community.
       </p>
     </div>
 
@@ -490,36 +492,32 @@ footer p {
 
 </section>
 
-
-<section class="tea">
+<section class="tea" id="tea">
 
   <h2>What's the tea? ☕</h2>
 
-  <p>
-    The community's hottest conversations.
-  </p>
+  <p>Hot conversations from the fandom.</p>
 
   <div class="tea-grid">
 
     <div class="tea-card">
-      <span>DISCUSSION</span>
-      <h3>Which BL couple has the best chemistry?</h3>
+      <small>DISCUSSION</small>
+      <h3>Which couple has the best chemistry?</h3>
     </div>
 
     <div class="tea-card">
-      <span>GL TALK</span>
-      <h3>That finale... we need to talk.</h3>
+      <small>GL TALK</small>
+      <h3>That finale definitely needs a discussion.</h3>
     </div>
 
     <div class="tea-card">
-      <span>FAN THEORY</span>
-      <h3>Did anyone else notice that tiny detail?</h3>
+      <small>THEORY</small>
+      <h3>Did anyone else notice THAT tiny detail?</h3>
     </div>
 
   </div>
 
 </section>
-
 
 <section class="confessions" id="confessions">
 
@@ -528,32 +526,183 @@ footer p {
     <h2>Got something to confess?</h2>
 
     <p>
-      Tell the community what you've been thinking.
-      Your confession can be completely anonymous.
-      No real name required.
+      Submit your thoughts anonymously.
+      No real name. No account required.
+      Just say what you really think.
     </p>
 
-    <a href="#" class="confess-button">
+    <button class="btn btn-main" onclick="showForm()">
       🔒 Submit Anonymous Confession
-    </a>
+    </button>
+
+    <div class="form" id="confessionForm">
+
+      <textarea
+        id="confessionText"
+        placeholder="Spill it... What's on your mind?"
+      ></textarea>
+
+      <select id="confessionCategory">
+        <option value="general">General</option>
+        <option value="BL">Thai BL</option>
+        <option value="GL">Thai GL</option>
+        <option value="gossip">Tea & Gossip</option>
+        <option value="theory">Fan Theory</option>
+      </select>
+
+      <button onclick="submitConfession()">
+        Post Anonymously
+      </button>
+
+      <div class="status" id="status"></div>
+
+    </div>
+
+  </div>
+
+  <div class="feed" id="confessionFeed">
+
+    <h3>Latest anonymous confessions</h3>
+
+    <div id="posts"></div>
 
   </div>
 
 </section>
 
-
 <footer>
 
   <div>
     <strong>Thai BL&GL</strong>
-    <p>Where the fandom comes to talk.</p>
+    <p>The fandom comes here to talk.</p>
   </div>
 
-  <p>
-    © 2026 Thai BL&GL
-  </p>
+  <p>© 2026 Thai BL&GL</p>
 
 </footer>
+
+<script>
+
+const SUPABASE_URL = "https://yqilsdiwtqcnntfnqdag.supabase.co";
+const SUPABASE_KEY = "sb_publishable_0bxkUvlJOUHyTJvHUQeKPA_MzPs5x_C";
+
+function showForm(){
+  document.getElementById("confessionForm").style.display="block";
+  document.getElementById("confessionText").focus();
+}
+
+async function submitConfession(){
+
+  const text =
+    document.getElementById("confessionText").value.trim();
+
+  const category =
+    document.getElementById("confessionCategory").value;
+
+  const status =
+    document.getElementById("status");
+
+  if(!text){
+    status.textContent="Please write something first.";
+    return;
+  }
+
+  status.textContent="Posting anonymously...";
+
+  try{
+
+    const response = await fetch(
+      SUPABASE_URL + "/rest/v1/anonymous_confessions",
+      {
+        method:"POST",
+        headers:{
+          "apikey":SUPABASE_KEY,
+          "Authorization":"Bearer " + SUPABASE_KEY,
+          "Content-Type":"application/json",
+          "Prefer":"return=minimal"
+        },
+        body:JSON.stringify({
+          content:text,
+          category:category
+        })
+      }
+    );
+
+    if(!response.ok){
+      throw new Error("Could not submit confession.");
+    }
+
+    document.getElementById("confessionText").value="";
+    status.textContent="✨ Your confession was posted anonymously!";
+
+    loadConfessions();
+
+  }catch(error){
+
+    status.textContent=
+      "Something went wrong. We need to finish the database permissions.";
+
+    console.error(error);
+  }
+}
+
+async function loadConfessions(){
+
+  try{
+
+    const response = await fetch(
+      SUPABASE_URL +
+      "/rest/v1/anonymous_confessions?select=id,created_at,content,category&order=created_at.desc&limit=10",
+      {
+        headers:{
+          "apikey":SUPABASE_KEY,
+          "Authorization":"Bearer " + SUPABASE_KEY
+        }
+      }
+    );
+
+    if(!response.ok) return;
+
+    const data=await response.json();
+
+    const feed=document.getElementById("confessionFeed");
+    const posts=document.getElementById("posts");
+
+    feed.style.display="block";
+    posts.innerHTML="";
+
+    data.forEach(item=>{
+
+      const div=document.createElement("div");
+      div.className="post";
+
+      div.innerHTML=
+        "<div class='post-label'>🔒 ANONYMOUS · " +
+        escapeHtml(item.category) +
+        "</div>" +
+        "<p>" +
+        escapeHtml(item.content) +
+        "</p>";
+
+      posts.appendChild(div);
+
+    });
+
+  }catch(error){
+    console.error(error);
+  }
+}
+
+function escapeHtml(text){
+
+  const div=document.createElement("div");
+  div.textContent=text;
+  return div.innerHTML;
+}
+
+loadConfessions();
+
+</script>
 
 </body>
 </html>
